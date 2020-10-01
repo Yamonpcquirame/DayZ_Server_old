@@ -240,7 +240,13 @@ class CustomMission: MissionServer
 		EntityAI pistol;
 		EntityAI snipe;
 		EntityAI assault;
-		
+		EntityAI medic;
+		EntityAI grenade;
+		EntityAI smoke;
+		EntityAI magAssault;
+		EntityAI magSnipe;
+		EntityAI magPistol;
+		EntityAI knife;
 		
 		ItemBase itemBs;
 		float rand;
@@ -311,7 +317,7 @@ if ( itemTop )
 			itemEnt = player.GetInventory().CreateInInventory(foodArray[rndIndexFood]);
 			
 			//Soin
-			itemEnt = player.GetInventory().CreateInInventory("BandageDressing");
+			medic = player.GetInventory().CreateInInventory("BandageDressing");
 			itemEnt = player.GetInventory().CreateInInventory("SalineBagIV");
             
 			//Bouteille d'eau
@@ -333,21 +339,22 @@ if ( itemTop )
 				//Création de la grenade aléatoire distrayante
 			string smokeArray[] = { "FlashGrenade", "M18SmokeGrenade_Green", "M18SmokeGrenade_Purple", "M18SmokeGrenade_Red", "M18SmokeGrenade_White", "M18SmokeGrenade_Yellow", "RDG2SmokeGrenade_Black", "RDG2SmokeGrenade_White" };
 			int rndIndexSmoke = Math.RandomInt(0, 7);
-			itemEnt = vest.GetInventory().CreateInInventory(smokeArray[rndIndexSmoke]);
+			smoke = vest.GetInventory().CreateInInventory(smokeArray[rndIndexSmoke]);
 			
 				//Création de la grenade aléatoire d'attaque
 			string grenadeArray[] = { "M67Grenade", "RGD5Grenade" };
 			int rndIndexGrenade = Math.RandomInt(0, 1);
-			itemEnt = vest.GetInventory().CreateInInventory(grenadeArray[rndIndexGrenade]);
+			grenade = vest.GetInventory().CreateInInventory(grenadeArray[rndIndexGrenade]);
 
  			//Pistolet
 			string pistolArray[] = { "Deagle", "Deagle_Gold", "FNX45", "Magnum" };
 			int rndIndexPistol = Math.RandomInt(0, 3);
+			//int rndIndexPistol = 3;
 			pistol = belt.GetInventory().CreateInInventory(pistolArray[rndIndexPistol]);
 			
 				//Magnum
 			if 	(rndIndexPistol == 3){
-				itemEnt = player.GetInventory().CreateInInventory("Ammo_357");
+				magPistol = player.GetInventory().CreateInInventory("Ammo_357");
 				itemEnt = player.GetInventory().CreateInInventory("Ammo_357");
 				itemEnt = player.GetInventory().CreateInInventory("Ammo_357");	
 				}
@@ -360,7 +367,7 @@ if ( itemTop )
 				
 				//FNX45
 				if (rndIndexPistol == 2){
-				itemEnt = player.GetInventory().CreateInInventory("Mag_FNX45_15Rnd");
+				magPistol = player.GetInventory().CreateInInventory("Mag_FNX45_15Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_FNX45_15Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_FNX45_15Rnd");
 				}				
@@ -368,7 +375,7 @@ if ( itemTop )
 				//Les 2 Deagle
 				else {
 				itemEnt = player.GetInventory().CreateInInventory("PistolOptic");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_Deagle_9rnd");
+				magPistol = player.GetInventory().CreateInInventory("Mag_Deagle_9rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_Deagle_9rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_Deagle_9rnd");
 				
@@ -377,7 +384,7 @@ if ( itemTop )
 			
 						
 			//Couteau dans les bottes
-			itemEnt = boots.GetInventory().CreateInInventory("CombatKnife");
+			knife = boots.GetInventory().CreateInInventory("CombatKnife");
 
 			//	Fusil d'assaut 
 			string assaultArray[] = { "Saiga", "M4A1", "M4A1_Black", "M4A1_Green", "AK101", "AK101_Black", "AK101_Green", "AK74", "AK74_Black", "AK74_Green", "AKM" };
@@ -392,7 +399,7 @@ if ( itemTop )
 				itemEnt = assault.GetInventory().CreateInInventory("Saiga_Bttstck");
 				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
 				//Chargeurs Saiga
-				itemEnt = player.GetInventory().CreateInInventory("Mag_Saiga_Drum20Rnd");
+				magAssault = player.GetInventory().CreateInInventory("Mag_Saiga_Drum20Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_Saiga_Drum20Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_Saiga_Drum20Rnd");
 				//Viseur alternatif
@@ -409,7 +416,7 @@ if ( itemTop )
 				itemEnt = assault.GetInventory().CreateInInventory("M4_RISHndgrd_Black");
 				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
 				//Chargeurs M4A1 et M4A1_Black 
-				itemEnt = player.GetInventory().CreateInInventory("Mag_STANAGCoupled_30Rnd");
+				magAssault = player.GetInventory().CreateInInventory("Mag_STANAGCoupled_30Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_STANAGCoupled_30Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_STANAGCoupled_30Rnd");
 				//Viseur alternatif
@@ -425,7 +432,7 @@ if ( itemTop )
 				itemEnt = assault.GetInventory().CreateInInventory("M4_RISHndgrd_Green");
 				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
 				//Chargeurs M4A1_Green 
-				itemEnt = player.GetInventory().CreateInInventory("Mag_STANAGCoupled_30Rnd");
+				magAssault = player.GetInventory().CreateInInventory("Mag_STANAGCoupled_30Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_STANAGCoupled_30Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_STANAGCoupled_30Rnd");
 				//Viseur alternatif
@@ -442,7 +449,7 @@ if ( itemTop )
 				itemEnt = assault.GetInventory().CreateInInventory("AK_RailHndgrd_Black");
 				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
 				//Chargeurs AK101 et AK101_Black 
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK101_30Rnd");
+				magAssault = player.GetInventory().CreateInInventory("Mag_AK101_30Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_AK101_30Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_AK101_30Rnd");
 				//Viseur alternatif
@@ -458,7 +465,7 @@ if ( itemTop )
 				itemEnt = assault.GetInventory().CreateInInventory("AK_RailHndgrd_Green");
 				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
 				//Chargeurs AK101_Green 
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK101_30Rnd");
+				magAssault = player.GetInventory().CreateInInventory("Mag_AK101_30Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_AK101_30Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_AK101_30Rnd");
 				//Viseur alternatif
@@ -474,7 +481,7 @@ if ( itemTop )
 				itemEnt = assault.GetInventory().CreateInInventory("AK74_WoodBttstck");
 				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
 				//Chargeurs AK74
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd");
+				magAssault = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd");
 				//Viseur alternatif
@@ -490,7 +497,7 @@ if ( itemTop )
 				itemEnt = assault.GetInventory().CreateInInventory("AK_RailHndgrd_Black");
 				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
 				//Chargeurs AK74_Black 
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd_Black");
+				magAssault = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd_Black");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd_Black");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd_Black");
 				//Viseur alternatif
@@ -506,7 +513,7 @@ if ( itemTop )
 				itemEnt = assault.GetInventory().CreateInInventory("AK_RailHndgrd_Green");
 				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
 				//Chargeurs AK74_Green 
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd_Green");
+				magAssault = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd_Green");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd_Green");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd_Green");
 				//Viseur alternatif
@@ -522,7 +529,7 @@ if ( itemTop )
 				itemEnt = assault.GetInventory().CreateInInventory("AK_RailHndgrd_Black");
 				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
 				//Chargeurs AKM
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AKM_Drum75Rnd");
+				magAssault = player.GetInventory().CreateInInventory("Mag_AKM_Drum75Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_AKM_Drum75Rnd");
 				itemEnt = player.GetInventory().CreateInInventory("Mag_AKM_Drum75Rnd");
 				//Viseur alternatif
@@ -543,7 +550,7 @@ if ( itemTop )
 			//Accessoires SKS
 			itemEnt = snipe.GetInventory().CreateInInventory("PUScopeOptic");
 			//Balles SKS
-			itemEnt = player.GetInventory().CreateInInventory("Ammo_762x39");
+			magSnipe = player.GetInventory().CreateInInventory("Ammo_762x39");
 			itemEnt = player.GetInventory().CreateInInventory("Ammo_762x39");
 			itemEnt = player.GetInventory().CreateInInventory("Ammo_762x39");
 			break
@@ -556,7 +563,7 @@ if ( itemTop )
 			itemEnt = snipe.GetInventory().CreateInInventory("PUScopeOptic");
 			itemEnt = snipe.GetInventory().CreateInInventory("Mosin_Compensator");
 			//Balles Mosin
-			itemEnt = player.GetInventory().CreateInInventory("Ammo_762x54");
+			magSnipe = player.GetInventory().CreateInInventory("Ammo_762x54");
 			itemEnt = player.GetInventory().CreateInInventory("Ammo_762x54");
 			itemEnt = player.GetInventory().CreateInInventory("Ammo_762x54");
 			break
@@ -568,7 +575,7 @@ if ( itemTop )
 			//Accessoires Winchester70 et Blaze
 			itemEnt = snipe.GetInventory().CreateInInventory("HuntingOptic");
 			//Balles Mosin Winchester70 et Blaze
-			itemEnt = player.GetInventory().CreateInInventory("Ammo_308Win");
+			magSnipe = player.GetInventory().CreateInInventory("Ammo_308Win");
 			itemEnt = player.GetInventory().CreateInInventory("Ammo_308Win");
 			itemEnt = player.GetInventory().CreateInInventory("Ammo_308Win");
 			break
@@ -578,7 +585,7 @@ if ( itemTop )
 			itemEnt = snipe.GetInventory().CreateInInventory("Fal_OeBttstck");
 			itemEnt = snipe.GetInventory().CreateInInventory("ACOGOptic");
 			//Chargeurs FAL
-			itemEnt = player.GetInventory().CreateInInventory("Mag_FAL_20Rnd");
+			magSnipe = player.GetInventory().CreateInInventory("Mag_FAL_20Rnd");
 			itemEnt = player.GetInventory().CreateInInventory("Mag_FAL_20Rnd");
 			itemEnt = player.GetInventory().CreateInInventory("Mag_FAL_20Rnd");
 			break
@@ -587,7 +594,7 @@ if ( itemTop )
 			//Accessoires VSS
 			itemEnt = snipe.GetInventory().CreateInInventory("PSO1Optic");
 			//Chargeurs VSS
-			itemEnt = player.GetInventory().CreateInInventory("Mag_VSS_10Rnd");
+			magSnipe = player.GetInventory().CreateInInventory("Mag_VSS_10Rnd");
 			itemEnt = player.GetInventory().CreateInInventory("Mag_VSS_10Rnd");
 			itemEnt = player.GetInventory().CreateInInventory("Mag_VSS_10Rnd");
 			break
@@ -596,13 +603,23 @@ if ( itemTop )
 			//Accessoires SVD
 			itemEnt = snipe.GetInventory().CreateInInventory("PSO1Optic");
 			//Chargeurs SVD
-			itemEnt = player.GetInventory().CreateInInventory("Mag_SVD_10Rnd");
+			magSnipe = player.GetInventory().CreateInInventory("Mag_SVD_10Rnd");
 			itemEnt = player.GetInventory().CreateInInventory("Mag_SVD_10Rnd");
 			itemEnt = player.GetInventory().CreateInInventory("Mag_SVD_10Rnd");
 			break
 			
 			}			
-            
+            //	Assignation des raccourcis
+			player.SetQuickBarEntityShortcut( assault, 0, true );
+			player.SetQuickBarEntityShortcut( snipe, 1, true );
+			player.SetQuickBarEntityShortcut( pistol, 2, true );
+			player.SetQuickBarEntityShortcut( knife, 3, true );
+			player.SetQuickBarEntityShortcut( grenade, 4, true );
+			player.SetQuickBarEntityShortcut( smoke, 5, true );
+			player.SetQuickBarEntityShortcut( magAssault, 6, true );
+			player.SetQuickBarEntityShortcut( magSnipe, 7, true );
+			player.SetQuickBarEntityShortcut( magPistol, 8, true );
+			player.SetQuickBarEntityShortcut( medic, 9, true );
 		}
 	}
 };
