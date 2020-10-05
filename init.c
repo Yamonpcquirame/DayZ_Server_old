@@ -229,19 +229,9 @@ class CustomMission: MissionServer
 	{
 		EntityAI itemTop;
 		EntityAI itemEnt;
-		
 		EntityAI jacket;
 		EntityAI pant;
-		EntityAI helmet;
-		EntityAI boots;
-		EntityAI vest;
-	    EntityAI belt;
-
-		EntityAI pistol;
-		EntityAI snipe;
-		EntityAI assault;
-		
-		
+		EntityAI boots;		
 		ItemBase itemBs;
 		float rand;
 
@@ -251,357 +241,55 @@ if ( itemTop )
 		{
 			player.RemoveAllItems();
 
-			//	HABITS 
+			
 			//Création de la veste
-			string jacketArray[] = { "M65Jacket_Black", "M65Jacket_Khaki", "M65Jacket_Olive", "M65Jacket_Tan", "TTsKOJacket_Camo", "BDUJacket" };
-			int rndIndexJacket = Math.RandomInt(0, 5);
-			jacket = player.GetInventory().CreateInInventory(jacketArray[rndIndexJacket]);
+			string jacketArray[] = { "HikingJacket_Red", "HikingJacket_Black", "HikingJacket_Green", "HikingJacket_Blue" };
+			int rndIndex = Math.RandomInt(0, 3);
+			jacket = player.GetInventory().CreateInInventory(jacketArray[rndIndex]);
 						
-			//Création du pantalon
-			string pantArray[] = { "CargoPants_Beige", "CargoPants_Black", "CargoPants_Blue", "CargoPants_Green", "CargoPants_Grey", "TTSKOPants", "BDUPants" };
-			int rndIndexPant = Math.RandomInt(0, 6);
-			pant = player.GetInventory().CreateInInventory(pantArray[rndIndexPant]);
+			//création du pantalon
+			string pantArray[] = { "JumpsuitPants_Red", "JumpsuitPants_Grey", "JumpsuitPants_Green", "JumpsuitPants_Blue" };
+			int rndIndex2 = Math.RandomInt(0, 3);
+			pant = player.GetInventory().CreateInInventory(pantArray[rndIndex2]);
 			
-			//Création du casque
-			string helmetArray[] = { "Mich2001Helmet", "BallisticHelmet_Black", "BallisticHelmet_Green", "BallisticHelmet_UN", "GorkaHelmet" };
-			int rndIndexHelmet = Math.RandomInt(0, 4);
-			helmet = player.GetInventory().CreateInInventory(helmetArray[rndIndexHelmet]);
+			//création des chaussures
+			string bootsArray[] = { "Sneakers_Red", "Sneakers_Gray", "Sneakers_Green", "Sneakers_Black", "Sneakers_White" };
+			int rndIndex3 = Math.RandomInt(0, 4);
+			boots = player.GetInventory().CreateInInventory(bootsArray[rndIndex3]);
 			
-			//Création des chaussures
-			string bootsArray[] = { "MilitaryBoots_Beige", "MilitaryBoots_Black", "MilitaryBoots_Bluerock", "MilitaryBoots_Brown", "MilitaryBoots_Redpunk" };
-			int rndIndexBoots = Math.RandomInt(0, 4);
-			boots = player.GetInventory().CreateInInventory(bootsArray[rndIndexBoots]);
-			
-			//Création de la cagoule
-			string maskArray[] = { "BalaclavaMask_Beige", "BalaclavaMask_Black", "BalaclavaMask_Blackskull", "BalaclavaMask_Blue", "BalaclavaMask_Green", "BalaclavaMask_Pink", "BalaclavaMask_White" };
-			int rndIndexMask = Math.RandomInt(0, 6);
-			itemEnt = player.GetInventory().CreateInInventory(maskArray[rndIndexMask]);
-			
-			//Création du gilet
-			string vestArray[] = { "HighCapacityVest_Black", "HighCapacityVest_Olive", "SmershVest", "UKAssVest_Black", "UKAssVest_Camo", "UKAssVest_Khaki", "UKAssVest_Olive"  };
-			int rndIndexVest = Math.RandomInt(0, 6);
-			vest = player.GetInventory().CreateInInventory(vestArray[rndIndexVest]);
-			
-			if (rndIndexVest == 2) {
-				itemEnt = vest.GetInventory().CreateInInventory("SmershBag");
-			}
-		
-			//Création des gants
-			string glovesArray[] = { "TacticalGloves_Beige", "TacticalGloves_Black", "TacticalGloves_Green", "OMNOGloves_Brown", "OMNOGloves_Gray" };
-			int rndIndexGloves = Math.RandomInt(0, 4);
-			itemEnt = player.GetInventory().CreateInInventory(glovesArray[rndIndexGloves]);
-			
-			//Création du brassard
-			string armbandArray[] = { "Armband_Black", "Armband_Blue", "Armband_Green", "Armband_Orange", "Armband_Pink", "Armband_Red", "Armband_White", "Armband_Yellow" };
-			int rndIndexArmband = Math.RandomInt(0, 7);
-			itemEnt = player.GetInventory().CreateInInventory(armbandArray[rndIndexArmband]);
-			
-			//Création de la ceinture
-			belt = player.GetInventory().CreateInInventory("MilitaryBelt");
-			itemEnt = belt.GetInventory().CreateInInventory("Canteen");
-			itemEnt = belt.GetInventory().CreateInInventory("NylonKnifeSheath");
-			itemEnt = belt.GetInventory().CreateInInventory("PlateCarrierHolster");
-			itemEnt = belt.GetInventory().CreateInInventory("CombatKnife"); 
-			
-			//	ITEMS
-			//Nourriture aléatoire
+			//items
+			//nourriture aléatoire
 			string foodArray[] = { "TacticalBaconCan_Opened", "BakedBeansCan_Opened", "PeachesCan_Opened", "SpaghettiCan_Opened","SardinesCan_Opened","TunaCan_Opened" };
-			int rndIndexFood = Math.RandomInt(0, 5);
-			itemEnt = player.GetInventory().CreateInInventory(foodArray[rndIndexFood]);
-			itemEnt = player.GetInventory().CreateInInventory(foodArray[rndIndexFood]);
+			int rndIndex4 = Math.RandomInt(0, 5);
+			itemEnt = player.GetInventory().CreateInInventory(foodArray[rndIndex4]);
 			
-			//Soin
-			itemEnt = player.GetInventory().CreateInInventory("BandageDressing");
-			itemEnt = player.GetInventory().CreateInInventory("SalineBagIV");
+			//soin
+			itemEnt = player.GetInventory().CreateInInventory("Rag");
+			itemEnt = player.GetInventory().CreateInInventory("SurgicalMask");
+			itemEnt = player.GetInventory().CreateInInventory("VitaminBottle");
             
-			//Bouteille d'eau
+			//bouteille d'eau
 			itemEnt = player.GetInventory().CreateInInventory("WaterBottle");
 			
-			//Soda aléatoire
-			string sodaArray[] = { "SodaCan_Cola", "SodaCan_Kvass", "SodaCan_Pipsi", "SodaCan_Spite" };
-			int rndIndexSoda = Math.RandomInt(0, 3);
-			itemEnt = player.GetInventory().CreateInInventory(sodaArray[rndIndexSoda]);
-				
-			//Réparation
+			//outils
 			itemEnt = player.GetInventory().CreateInInventory("DuctTape");
-			itemEnt = player.GetInventory().CreateInInventory("WeaponCleaningKit");
-			itemEnt = player.GetInventory().CreateInInventory("Battery9V");
+			itemEnt = player.GetInventory().CreateInInventory("KitchenKnife");
+			itemEnt = player.GetInventory().CreateInInventory("PetrolLighter");
+			itemEnt = player.GetInventory().CreateInInventory("OrienteeringCompass");
 
-			//	ARMES
-	
-			//Grenades
-				//Création de la grenade aléatoire distrayante
-			string smokeArray[] = { "FlashGrenade", "M18SmokeGrenade_Green", "M18SmokeGrenade_Purple", "M18SmokeGrenade_Red", "M18SmokeGrenade_White", "M18SmokeGrenade_Yellow", "RDG2SmokeGrenade_Black", "RDG2SmokeGrenade_White" };
-			int rndIndexSmoke = Math.RandomInt(0, 7);
-			itemEnt = vest.GetInventory().CreateInInventory(smokeArray[rndIndexSmoke]);
-			
-				//Création de la grenade aléatoire d'attaque
-			string grenadeArray[] = { "M67Grenade", "RGD5Grenade" };
-			int rndIndexGrenade = Math.RandomInt(0, 1);
-			itemEnt = vest.GetInventory().CreateInInventory(grenadeArray[rndIndexGrenade]);
 
- 			//Pistolet
-			string pistolArray[] = { "Deagle", "Deagle_Gold", "FNX45", "Magnum" };
-			int rndIndexPistol = Math.RandomInt(0, 3);
-			pistol = belt.GetInventory().CreateInInventory(pistolArray[rndIndexPistol]);
+			//Pistolet
+			itemEnt = player.GetInventory().CreateInInventory("MKII");
+			itemEnt = player.GetInventory().CreateInInventory("Mag_MKII_10Rnd");
+			itemEnt = player.GetInventory().CreateInInventory("AmmoBox_22_50Rnd");
 			
-				//Magnum
-			if 	(rndIndexPistol == 3){
-				itemEnt = player.GetInventory().CreateInInventory("Ammo_357");
-				itemEnt = player.GetInventory().CreateInInventory("Ammo_357");
-				itemEnt = player.GetInventory().CreateInInventory("Ammo_357");	
-				}
-			
-			else {
-				// Viseur et silencieux pour les autres pistolets
-				itemEnt = pistol.GetInventory().CreateInInventory("FNP45_MRDSOptic");
-				itemEnt = pistol.GetInventory().CreateInInventory("PistolSuppressor");
-				itemEnt = pistol.GetInventory().CreateInInventory("Battery9V");
-				
-				//FNX45
-				if (rndIndexPistol == 2){
-				itemEnt = player.GetInventory().CreateInInventory("Mag_FNX45_15Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_FNX45_15Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_FNX45_15Rnd");
-				}				
+			//Batte de baseball avec des clous
+			itemEnt = player.GetInventory().CreateInInventory("NailedBaseballBat");
 
-				//Les 2 Deagle
-				else {
-				itemEnt = player.GetInventory().CreateInInventory("PistolOptic");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_Deagle_9rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_Deagle_9rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_Deagle_9rnd");
-				
-				}
-			}
-			
-						
-			//Couteau dans les bottes
-			itemEnt = boots.GetInventory().CreateInInventory("CombatKnife");
 
-			//	Fusil d'assaut 
-			string assaultArray[] = { "Saiga", "M4A1", "M4A1_Black", "M4A1_Green", "AK101", "AK101_Black", "AK101_Green", "AK74", "AK74_Black", "AK74_Green", "AKM" };
-			int rndIndexAssault = Math.RandomInt(0, 10);
-			assault = player.GetInventory().CreateInInventory(assaultArray[rndIndexAssault]); 
-            switch(rndIndexAssault){
 			
-				//Saiga
-				case 0 : 
-				//Accessoires Saiga
-				itemEnt = assault.GetInventory().CreateInInventory("KobraOptic");
-				itemEnt = assault.GetInventory().CreateInInventory("Saiga_Bttstck");
-				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
-				//Chargeurs Saiga
-				itemEnt = player.GetInventory().CreateInInventory("Mag_Saiga_Drum20Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_Saiga_Drum20Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_Saiga_Drum20Rnd");
-				//Viseur alternatif
-				itemEnt = player.GetInventory().CreateInInventory("PSO1Optic");
-				break
-				
-				//M4A1 et M4A1_Black
-				case 1 :
-				case 2 : 
-				//Accessoires M4A1 et M4A1_Black
-				itemEnt = assault.GetInventory().CreateInInventory("M4_Suppressor");
-				itemEnt = assault.GetInventory().CreateInInventory("M4_T3NRDSOptic");
-				itemEnt = assault.GetInventory().CreateInInventory("M4_MPBttstck");
-				itemEnt = assault.GetInventory().CreateInInventory("M4_RISHndgrd_Black");
-				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
-				//Chargeurs M4A1 et M4A1_Black 
-				itemEnt = player.GetInventory().CreateInInventory("Mag_STANAGCoupled_30Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_STANAGCoupled_30Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_STANAGCoupled_30Rnd");
-				//Viseur alternatif
-				itemEnt = player.GetInventory().CreateInInventory("ACOGOptic");
-				break
-				
-				//M4A1_Green
-				case 3 :
-				//Accessoires M4A1_Green
-				itemEnt = assault.GetInventory().CreateInInventory("M4_Suppressor");
-				itemEnt = assault.GetInventory().CreateInInventory("M4_T3NRDSOptic");
-				itemEnt = assault.GetInventory().CreateInInventory("M4_MPBttstck");
-				itemEnt = assault.GetInventory().CreateInInventory("M4_RISHndgrd_Green");
-				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
-				//Chargeurs M4A1_Green 
-				itemEnt = player.GetInventory().CreateInInventory("Mag_STANAGCoupled_30Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_STANAGCoupled_30Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_STANAGCoupled_30Rnd");
-				//Viseur alternatif
-				itemEnt = player.GetInventory().CreateInInventory("ACOGOptic");
-				break
-				
-				//AK101 et AK101_Black
-				case 4 :
-				case 5 : 
-				//Accessoires AK101 et AK101_Black
-				itemEnt = assault.GetInventory().CreateInInventory("AK_Suppressor");
-				itemEnt = assault.GetInventory().CreateInInventory("KobraOptic");
-				itemEnt = assault.GetInventory().CreateInInventory("AK_PlasticBttstck_Black");
-				itemEnt = assault.GetInventory().CreateInInventory("AK_RailHndgrd_Black");
-				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
-				//Chargeurs AK101 et AK101_Black 
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK101_30Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK101_30Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK101_30Rnd");
-				//Viseur alternatif
-				itemEnt = player.GetInventory().CreateInInventory("PSO1Optic");
-				break
-				
-				//AK101_Green
-				case 6 : 
-				//Accessoires AK101_Green
-				itemEnt = assault.GetInventory().CreateInInventory("AK_Suppressor");
-				itemEnt = assault.GetInventory().CreateInInventory("KobraOptic");
-				itemEnt = assault.GetInventory().CreateInInventory("AK_PlasticBttstck_Green");
-				itemEnt = assault.GetInventory().CreateInInventory("AK_RailHndgrd_Green");
-				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
-				//Chargeurs AK101_Green 
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK101_30Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK101_30Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK101_30Rnd");
-				//Viseur alternatif
-				itemEnt = player.GetInventory().CreateInInventory("PSO1Optic");
-				break
-				
-				//AK74
-				case 7 : 
-				//Accessoires AK74
-				itemEnt = assault.GetInventory().CreateInInventory("AK_Suppressor");
-				itemEnt = assault.GetInventory().CreateInInventory("KobraOptic");
-				itemEnt = assault.GetInventory().CreateInInventory("AK74_Hndgrd");
-				itemEnt = assault.GetInventory().CreateInInventory("AK74_WoodBttstck");
-				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
-				//Chargeurs AK74
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd");
-				//Viseur alternatif
-				itemEnt = player.GetInventory().CreateInInventory("PSO1Optic");
-				break
-				
-				//AK74_Black
-				case 8 : 
-				//Accessoires AK74_Black
-				itemEnt = assault.GetInventory().CreateInInventory("AK_Suppressor");
-				itemEnt = assault.GetInventory().CreateInInventory("KobraOptic");
-				itemEnt = assault.GetInventory().CreateInInventory("AK_PlasticBttstck_Black");
-				itemEnt = assault.GetInventory().CreateInInventory("AK_RailHndgrd_Black");
-				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
-				//Chargeurs AK74_Black 
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd_Black");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd_Black");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd_Black");
-				//Viseur alternatif
-				itemEnt = player.GetInventory().CreateInInventory("PSO1Optic");
-				break
-				
-				//AK74_Green
-				case 9 : 
-				//Accessoires AK74_Green
-				itemEnt = assault.GetInventory().CreateInInventory("AK_Suppressor");
-				itemEnt = assault.GetInventory().CreateInInventory("KobraOptic");
-				itemEnt = assault.GetInventory().CreateInInventory("AK_PlasticBttstck_Green");
-				itemEnt = assault.GetInventory().CreateInInventory("AK_RailHndgrd_Green");
-				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
-				//Chargeurs AK74_Green 
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd_Green");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd_Green");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AK74_30Rnd_Green");
-				//Viseur alternatif
-				itemEnt = player.GetInventory().CreateInInventory("PSO1Optic");
-				break
-				
-				//AKM
-				case 7 : 
-				//Accessoires AKM
-				itemEnt = assault.GetInventory().CreateInInventory("AK_Suppressor");
-				itemEnt = assault.GetInventory().CreateInInventory("KobraOptic");
-				itemEnt = assault.GetInventory().CreateInInventory("AK_FoldingBttstck_Black");
-				itemEnt = assault.GetInventory().CreateInInventory("AK_RailHndgrd_Black");
-				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
-				//Chargeurs AKM
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AKM_Drum75Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AKM_Drum75Rnd");
-				itemEnt = player.GetInventory().CreateInInventory("Mag_AKM_Drum75Rnd");
-				//Viseur alternatif
-				itemEnt = player.GetInventory().CreateInInventory("PSO1Optic");
-				break
-				
-			}
-			
-			//	Snipe 
- 			string snipeArray[] = { "SKS", "SKS_Black", "SKS_Green", "Mosin9130", "Mosin9130_Black", "Mosin9130_Camo", "Mosin9130_Green", "Winchester70", "Winchester70_Black", "Winchester70_Green", "B95", "FAL", "VSS", "SVD" };
-			int rndIndexSnipe = Math.RandomInt(0, 13);
-			snipe = player.GetInventory().CreateInInventory(snipeArray[rndIndexSnipe]); 
             
-			switch(rndIndexSnipe){
-			case 0 :
-			case 1 :
-			case 2 : 
-			//Accessoires SKS
-			itemEnt = snipe.GetInventory().CreateInInventory("PUScopeOptic");
-			//Balles SKS
-			itemEnt = player.GetInventory().CreateInInventory("Ammo_762x39");
-			itemEnt = player.GetInventory().CreateInInventory("Ammo_762x39");
-			itemEnt = player.GetInventory().CreateInInventory("Ammo_762x39");
-			break
-			
-			case 3 :
-			case 4 :
-			case 5 : 
-			case 6 : 
-			//Accessoires Mosin
-			itemEnt = snipe.GetInventory().CreateInInventory("PUScopeOptic");
-			itemEnt = snipe.GetInventory().CreateInInventory("Mosin_Compensator");
-			//Balles Mosin
-			itemEnt = player.GetInventory().CreateInInventory("Ammo_762x54");
-			itemEnt = player.GetInventory().CreateInInventory("Ammo_762x54");
-			itemEnt = player.GetInventory().CreateInInventory("Ammo_762x54");
-			break
-			
-			case 7 :
-			case 8 :
-			case 9 : 
-			case 10 : 
-			//Accessoires Winchester70 et Blaze
-			itemEnt = snipe.GetInventory().CreateInInventory("HuntingOptic");
-			//Balles Mosin Winchester70 et Blaze
-			itemEnt = player.GetInventory().CreateInInventory("Ammo_308Win");
-			itemEnt = player.GetInventory().CreateInInventory("Ammo_308Win");
-			itemEnt = player.GetInventory().CreateInInventory("Ammo_308Win");
-			break
-			
-			case 11 :
-			//Accessoires FAL
-			itemEnt = snipe.GetInventory().CreateInInventory("Fal_OeBttstck");
-			itemEnt = snipe.GetInventory().CreateInInventory("ACOGOptic");
-			//Chargeurs FAL
-			itemEnt = player.GetInventory().CreateInInventory("Mag_FAL_20Rnd");
-			itemEnt = player.GetInventory().CreateInInventory("Mag_FAL_20Rnd");
-			itemEnt = player.GetInventory().CreateInInventory("Mag_FAL_20Rnd");
-			break
-			
-			case 12 :
-			//Accessoires VSS
-			itemEnt = snipe.GetInventory().CreateInInventory("PSO1Optic");
-			//Chargeurs VSS
-			itemEnt = player.GetInventory().CreateInInventory("Mag_VSS_10Rnd");
-			itemEnt = player.GetInventory().CreateInInventory("Mag_VSS_10Rnd");
-			itemEnt = player.GetInventory().CreateInInventory("Mag_VSS_10Rnd");
-			break
-			
-			case 13 :
-			//Accessoires SVD
-			itemEnt = snipe.GetInventory().CreateInInventory("PSO1Optic");
-			//Chargeurs SVD
-			itemEnt = player.GetInventory().CreateInInventory("Mag_SVD_10Rnd");
-			itemEnt = player.GetInventory().CreateInInventory("Mag_SVD_10Rnd");
-			itemEnt = player.GetInventory().CreateInInventory("Mag_SVD_10Rnd");
-			break
-			
-			}			
+
             
 		}
 	}
