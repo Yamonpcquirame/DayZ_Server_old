@@ -232,6 +232,15 @@ class CustomMission: MissionServer
 		EntityAI jacket;
 		EntityAI pant;
 		EntityAI boots;		
+		
+		EntityAI pistol;
+		EntityAI food;
+		EntityAI medic;
+		EntityAI bat;
+		EntityAI rounds;
+		EntityAI magPistol;
+		EntityAI knife;
+		
 		ItemBase itemBs;
 		float rand;
 
@@ -244,27 +253,27 @@ if ( itemTop )
 			
 			//Création de la veste
 			string jacketArray[] = { "HikingJacket_Red", "HikingJacket_Black", "HikingJacket_Green", "HikingJacket_Blue" };
-			int rndIndex = Math.RandomInt(0, 3);
+			int rndIndex = Math.RandomInt(0, 4);
 			jacket = player.GetInventory().CreateInInventory(jacketArray[rndIndex]);
 						
 			//création du pantalon
 			string pantArray[] = { "JumpsuitPants_Red", "JumpsuitPants_Grey", "JumpsuitPants_Green", "JumpsuitPants_Blue" };
-			int rndIndex2 = Math.RandomInt(0, 3);
+			int rndIndex2 = Math.RandomInt(0, 4);
 			pant = player.GetInventory().CreateInInventory(pantArray[rndIndex2]);
 			
 			//création des chaussures
 			string bootsArray[] = { "Sneakers_Red", "Sneakers_Gray", "Sneakers_Green", "Sneakers_Black", "Sneakers_White" };
-			int rndIndex3 = Math.RandomInt(0, 4);
+			int rndIndex3 = Math.RandomInt(0, 5);
 			boots = player.GetInventory().CreateInInventory(bootsArray[rndIndex3]);
 			
 			//items
 			//nourriture aléatoire
 			string foodArray[] = { "TacticalBaconCan_Opened", "BakedBeansCan_Opened", "PeachesCan_Opened", "SpaghettiCan_Opened","SardinesCan_Opened","TunaCan_Opened" };
-			int rndIndex4 = Math.RandomInt(0, 5);
-			itemEnt = player.GetInventory().CreateInInventory(foodArray[rndIndex4]);
+			int rndIndex4 = Math.RandomInt(0, 6);
+			food = player.GetInventory().CreateInInventory(foodArray[rndIndex4]);
 			
 			//soin
-			itemEnt = player.GetInventory().CreateInInventory("Rag");
+			medic = player.GetInventory().CreateInInventory("Rag");
 			itemEnt = player.GetInventory().CreateInInventory("SurgicalMask");
 			itemEnt = player.GetInventory().CreateInInventory("VitaminBottle");
             
@@ -273,21 +282,27 @@ if ( itemTop )
 			
 			//outils
 			itemEnt = player.GetInventory().CreateInInventory("DuctTape");
-			itemEnt = player.GetInventory().CreateInInventory("KitchenKnife");
+			knife = player.GetInventory().CreateInInventory("KitchenKnife");
 			itemEnt = player.GetInventory().CreateInInventory("PetrolLighter");
 			itemEnt = player.GetInventory().CreateInInventory("OrienteeringCompass");
 
 
 			//Pistolet
-			itemEnt = player.GetInventory().CreateInInventory("MKII");
-			itemEnt = player.GetInventory().CreateInInventory("Mag_MKII_10Rnd");
-			itemEnt = player.GetInventory().CreateInInventory("AmmoBox_22_50Rnd");
+			pistol = player.GetInventory().CreateInInventory("MKII");
+			magPistol = player.GetInventory().CreateInInventory("Mag_MKII_10Rnd");
+			rounds = player.GetInventory().CreateInInventory("Ammobox_22_50Rnd");
 			
 			//Batte de baseball avec des clous
-			itemEnt = player.GetInventory().CreateInInventory("NailedBaseballBat");
+			bat = player.GetInventory().CreateInInventory("NailedBaseballBat");
 
 
-			
+			            //	Assignation des raccourcis
+			player.SetQuickBarEntityShortcut( pistol, 0, true );
+			player.SetQuickBarEntityShortcut( magPistol, 1, true );
+			player.SetQuickBarEntityShortcut( rounds, 2, true );
+			player.SetQuickBarEntityShortcut( bat, 3, true );
+			player.SetQuickBarEntityShortcut( medic, 4, true );
+
             
 
             
