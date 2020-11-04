@@ -256,36 +256,43 @@ class CustomMission: MissionServer
 if ( itemTop )
 		{
 			player.RemoveAllItems();
+			
+			// Eau et nourriture à fond et qui ne descendent pas (vraiment)
+/* 			player.GetStatWater().Set(player.GetStatWater().GetMax());
+			player.GetStatEnergy().Set(player.GetStatEnergy().GetMax());
+			player.GetStatStomachEnergy().Set(1000);
+			player.GetStatStomachWater().Set(1000); */
+
 
 			//	HABITS 
 			//Création de la veste
 			string jacketArray[] = { "M65Jacket_Black", "M65Jacket_Khaki", "M65Jacket_Olive", "M65Jacket_Tan", "TTsKOJacket_Camo", "BDUJacket" };
-			int rndIndexJacket = Math.RandomInt(0, 5);
+			int rndIndexJacket = Math.RandomInt(0, 6);
 			jacket = player.GetInventory().CreateInInventory(jacketArray[rndIndexJacket]);
 						
 			//Création du pantalon
 			string pantArray[] = { "CargoPants_Beige", "CargoPants_Black", "CargoPants_Blue", "CargoPants_Green", "CargoPants_Grey", "TTSKOPants", "BDUPants" };
-			int rndIndexPant = Math.RandomInt(0, 6);
+			int rndIndexPant = Math.RandomInt(0, 7);
 			pant = player.GetInventory().CreateInInventory(pantArray[rndIndexPant]);
 			
 			//Création du casque
 			string helmetArray[] = { "Mich2001Helmet", "BallisticHelmet_Black", "BallisticHelmet_Green", "BallisticHelmet_UN", "GorkaHelmet" };
-			int rndIndexHelmet = Math.RandomInt(0, 4);
+			int rndIndexHelmet = Math.RandomInt(0, 5);
 			helmet = player.GetInventory().CreateInInventory(helmetArray[rndIndexHelmet]);
 			
 			//Création des chaussures
 			string bootsArray[] = { "MilitaryBoots_Beige", "MilitaryBoots_Black", "MilitaryBoots_Bluerock", "MilitaryBoots_Brown", "MilitaryBoots_Redpunk" };
-			int rndIndexBoots = Math.RandomInt(0, 4);
+			int rndIndexBoots = Math.RandomInt(0, 5);
 			boots = player.GetInventory().CreateInInventory(bootsArray[rndIndexBoots]);
 			
 			//Création de la cagoule
 			string maskArray[] = { "BalaclavaMask_Beige", "BalaclavaMask_Black", "BalaclavaMask_Blackskull", "BalaclavaMask_Blue", "BalaclavaMask_Green", "BalaclavaMask_Pink", "BalaclavaMask_White" };
-			int rndIndexMask = Math.RandomInt(0, 6);
+			int rndIndexMask = Math.RandomInt(0, 7);
 			itemEnt = player.GetInventory().CreateInInventory(maskArray[rndIndexMask]);
 			
 			//Création du gilet
 			string vestArray[] = { "HighCapacityVest_Black", "HighCapacityVest_Olive", "SmershVest", "UKAssVest_Black", "UKAssVest_Camo", "UKAssVest_Khaki", "UKAssVest_Olive"  };
-			int rndIndexVest = Math.RandomInt(0, 6);
+			int rndIndexVest = Math.RandomInt(0, 7);
 			vest = player.GetInventory().CreateInInventory(vestArray[rndIndexVest]);
 			
 			if (rndIndexVest == 2) {
@@ -294,12 +301,12 @@ if ( itemTop )
 		
 			//Création des gants
 			string glovesArray[] = { "TacticalGloves_Beige", "TacticalGloves_Black", "TacticalGloves_Green", "OMNOGloves_Brown", "OMNOGloves_Gray" };
-			int rndIndexGloves = Math.RandomInt(0, 4);
+			int rndIndexGloves = Math.RandomInt(0, 5);
 			itemEnt = player.GetInventory().CreateInInventory(glovesArray[rndIndexGloves]);
 			
 			//Création du brassard
 			string armbandArray[] = { "Armband_Black", "Armband_Blue", "Armband_Green", "Armband_Orange", "Armband_Pink", "Armband_Red", "Armband_White", "Armband_Yellow" };
-			int rndIndexArmband = Math.RandomInt(0, 7);
+			int rndIndexArmband = Math.RandomInt(0, 8);
 			itemEnt = player.GetInventory().CreateInInventory(armbandArray[rndIndexArmband]);
 			
 			//Création de la ceinture
@@ -312,7 +319,7 @@ if ( itemTop )
 			//	ITEMS
 			//Nourriture aléatoire
 			string foodArray[] = { "TacticalBaconCan_Opened", "BakedBeansCan_Opened", "PeachesCan_Opened", "SpaghettiCan_Opened","SardinesCan_Opened","TunaCan_Opened" };
-			int rndIndexFood = Math.RandomInt(0, 5);
+			int rndIndexFood = Math.RandomInt(0, 6);
 			itemEnt = player.GetInventory().CreateInInventory(foodArray[rndIndexFood]);
 			itemEnt = player.GetInventory().CreateInInventory(foodArray[rndIndexFood]);
 			
@@ -325,7 +332,7 @@ if ( itemTop )
 			
 			//Soda aléatoire
 			string sodaArray[] = { "SodaCan_Cola", "SodaCan_Kvass", "SodaCan_Pipsi", "SodaCan_Spite" };
-			int rndIndexSoda = Math.RandomInt(0, 3);
+			int rndIndexSoda = Math.RandomInt(0, 4);
 			itemEnt = player.GetInventory().CreateInInventory(sodaArray[rndIndexSoda]);
 				
 			//Réparation
@@ -338,18 +345,17 @@ if ( itemTop )
 			//Grenades
 				//Création de la grenade aléatoire distrayante
 			string smokeArray[] = { "FlashGrenade", "M18SmokeGrenade_Green", "M18SmokeGrenade_Purple", "M18SmokeGrenade_Red", "M18SmokeGrenade_White", "M18SmokeGrenade_Yellow", "RDG2SmokeGrenade_Black", "RDG2SmokeGrenade_White" };
-			int rndIndexSmoke = Math.RandomInt(0, 7);
+			int rndIndexSmoke = Math.RandomInt(0, 8);
 			smoke = vest.GetInventory().CreateInInventory(smokeArray[rndIndexSmoke]);
 			
 				//Création de la grenade aléatoire d'attaque
-			string grenadeArray[] = { "M67Grenade", "RGD5Grenade" };
-			int rndIndexGrenade = Math.RandomInt(0, 1);
+			string grenadeArray[] = { "M67Grenade", "RGD5Grenade", "LandMineTrap" };
+			int rndIndexGrenade = Math.RandomInt(0, 3);
 			grenade = vest.GetInventory().CreateInInventory(grenadeArray[rndIndexGrenade]);
 
  			//Pistolet
 			string pistolArray[] = { "Deagle", "Deagle_Gold", "FNX45", "Magnum" };
-			int rndIndexPistol = Math.RandomInt(0, 3);
-			//int rndIndexPistol = 3;
+			int rndIndexPistol = Math.RandomInt(0, 4);
 			pistol = belt.GetInventory().CreateInInventory(pistolArray[rndIndexPistol]);
 			
 				//Magnum
@@ -388,7 +394,7 @@ if ( itemTop )
 
 			//	Fusil d'assaut 
 			string assaultArray[] = { "Saiga", "M4A1", "M4A1_Black", "M4A1_Green", "AK101", "AK101_Black", "AK101_Green", "AK74", "AK74_Black", "AK74_Green", "AKM" };
-			int rndIndexAssault = Math.RandomInt(0, 10);
+			int rndIndexAssault = Math.RandomInt(0, 11);
 			assault = player.GetInventory().CreateInInventory(assaultArray[rndIndexAssault]); 
             switch(rndIndexAssault){
 			
@@ -521,11 +527,11 @@ if ( itemTop )
 				break
 				
 				//AKM
-				case 7 : 
+				case 10 : 
 				//Accessoires AKM
 				itemEnt = assault.GetInventory().CreateInInventory("AK_Suppressor");
 				itemEnt = assault.GetInventory().CreateInInventory("KobraOptic");
-				itemEnt = assault.GetInventory().CreateInInventory("AK_FoldingBttstck_Black");
+				itemEnt = assault.GetInventory().CreateInInventory("AK_PlasticBttstck_Black");
 				itemEnt = assault.GetInventory().CreateInInventory("AK_RailHndgrd_Black");
 				itemEnt = assault.GetInventory().CreateInInventory("Battery9V");
 				//Chargeurs AKM
@@ -540,7 +546,7 @@ if ( itemTop )
 			
 			//	Snipe 
  			string snipeArray[] = { "SKS", "SKS_Black", "SKS_Green", "Mosin9130", "Mosin9130_Black", "Mosin9130_Camo", "Mosin9130_Green", "Winchester70", "Winchester70_Black", "Winchester70_Green", "B95", "FAL", "VSS", "SVD" };
-			int rndIndexSnipe = Math.RandomInt(0, 13);
+			int rndIndexSnipe = Math.RandomInt(0, 14);
 			snipe = player.GetInventory().CreateInInventory(snipeArray[rndIndexSnipe]); 
             
 			switch(rndIndexSnipe){
@@ -593,6 +599,7 @@ if ( itemTop )
 			case 12 :
 			//Accessoires VSS
 			itemEnt = snipe.GetInventory().CreateInInventory("PSO1Optic");
+			itemEnt = snipe.GetInventory().CreateInInventory("Battery9V");
 			//Chargeurs VSS
 			magSnipe = player.GetInventory().CreateInInventory("Mag_VSS_10Rnd");
 			itemEnt = player.GetInventory().CreateInInventory("Mag_VSS_10Rnd");
@@ -602,6 +609,7 @@ if ( itemTop )
 			case 13 :
 			//Accessoires SVD
 			itemEnt = snipe.GetInventory().CreateInInventory("PSO1Optic");
+			itemEnt = snipe.GetInventory().CreateInInventory("Battery9V");
 			//Chargeurs SVD
 			magSnipe = player.GetInventory().CreateInInventory("Mag_SVD_10Rnd");
 			itemEnt = player.GetInventory().CreateInInventory("Mag_SVD_10Rnd");
