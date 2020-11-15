@@ -224,6 +224,93 @@ class CustomMission: MissionServer
 
 		return m_player;
 	}
+	
+	override void OnInit()
+	{
+
+		GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(AdminsOnServer, 60000, true);		// 60 seconds
+	}
+	
+	void AdminsOnServer()
+	
+	{
+		string admins[] = {"76561198048981848", "76561198291848698", "76561197963191118", "76561198319315689"};
+		string adminsName[] = { "Yamonpcquiplante", "EvilKevin", "Valgar74", "Bobuelwein" };
+		string adminsOnline;
+		
+		int numadmins = 0;
+		string messPlayers;
+		ref array<Man> players = new array<Man>;
+		GetGame().GetPlayers( players );
+		int numPlayers = players.Count();
+		
+		for ( int i = 0; i < players.Count(); ++i )
+		{
+			Man player = players.Get(i);
+			if( player )
+			{
+				string GUID=player.GetIdentity().GetPlainId();
+				for ( int j = 0; j < 4; ++j )
+				{
+					if (GUID == admins[j])
+					{
+						adminsOnline = adminsOnline + " " +adminsName[j];
+						++numadmins;
+					}
+				}
+				
+				if(numadmins==0)
+				{
+					messPlayers = "No admin online but you may not be alone...";
+				}
+				else
+				{
+					messPlayers = "Admins online : " + numadmins.ToString() + " :" + adminsOnline;
+					
+				}
+			
+				// if (GUID == admins[0])
+				// {
+					// messPlayers = adminsName[0];
+				// }
+				// else
+				// {
+					// messPlayers = "No admin online";
+				// }
+				Param1<string> m_MessageParam = new Param1<string>(messPlayers); 
+				GetGame().RPCSingleParam(player, ERPCs.RPC_USER_ACTION_MESSAGE, m_MessageParam, true, player.GetIdentity()); 
+				
+			}
+		}
+		
+	}
+	
+	// void AdminsOnServer()
+	
+	// {
+		// ref array<Man> players = new array<Man>;
+		// GetGame().GetPlayers( players );
+		// int numPlayers = players.Count();
+		//admin = 76561198048981848;
+		// for ( int i = 0; i < players.Count(); ++i )
+		// {
+			// Man player = players.Get(i);
+			// if( player )
+			// {
+				//if (GUID == admin)
+				//{
+				//string messPlayers = "Admin on the server : Yamonpcquiplante";
+				// string GUID=player.GetIdentity().GetPlainId();
+				// string messPlayers = GUID;
+				// Param1<string> m_MessageParam = new Param1<string>(messPlayers); 
+				// GetGame().RPCSingleParam(player, ERPCs.RPC_USER_ACTION_MESSAGE, m_MessageParam, true, player.GetIdentity()); 
+				 
+				
+			// }
+		// }
+		
+	// }
+	
 
 	override void StartingEquipSetup(PlayerBase player, bool clothesChosen)
 	{
@@ -289,6 +376,7 @@ if ( itemTop )
 
 			//Pistolet
 			pistol = player.GetInventory().CreateInInventory("MKII");
+			//itemEnt = pistol.GetInventory().CreateAttachment("Mag_MKII_10Rnd");
 			magPistol = player.GetInventory().CreateInInventory("Mag_MKII_10Rnd");
 			rounds = player.GetInventory().CreateInInventory("Ammobox_22_50Rnd");
 			
