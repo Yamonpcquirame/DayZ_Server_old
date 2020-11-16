@@ -29,33 +29,33 @@
     <message>
         <delay>4</delay>
         <onconnect>1</onconnect>
-        <text>Rejoins nous sur Discord :) discord.gg/wCRDza</text>
+        <text>Rejoins nous sur Discord :) https://discord.gg/3DSquunFVV</text>
     </message>
 <!-- en jeu -->    
     <message>
         <repeat>15</repeat>
-        <delay>20</delay>
+        <delay>60</delay>
         <text>Chaque spawn se fera full stuff et uniquement sur la zone de PVP / Each spawn will be full and only on PVP area</text>
 	</message>
 	<message>
         <repeat>15</repeat>
-        <delay>25</delay>
-        <text>Si tu veux pas faire de PVP, tu peux sortir de la zone en passant sous un des murs et aller vivre ta vie ailleurs</text>
+        <delay>120</delay>
+        <text>Si tu ne veux pas faire de PVP, tu peux sortir de la zone en passant sous un des murs et aller vivre ta vie ailleurs</text>
 	</message>
 	<message>
         <repeat>15</repeat>
-        <delay>25</delay>
+        <delay>120</delay>
         <text>If you don't want to do PVP, you can leave the area by going under one of the walls and go and live your life elsewhere</text>
 	</message>	
 		<message>
         <repeat>15</repeat>
         <delay>30</delay>
-        <text>Besoin d'un admin ? Appuyez sur la touche Entrée et tapez la commande !ainf pour avoir la liste des admins en jeu</text>
+        <text>Besoin d'un admin ? RDV sur Discord !</text>
 	</message>
 	<message>
         <repeat>15</repeat>
         <delay>30</delay>
-        <text>Need an admin ? Press Enter key and write !ainf to see the admin online list</text>
+        <text>Need an admin ? Just join our Discord !</text>
 	</message>
 </messages>
     

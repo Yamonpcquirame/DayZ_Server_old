@@ -259,14 +259,29 @@ class CustomMission: MissionServer
 					}
 				}
 				
-				if(numadmins==0)
-				{
-					messPlayers = "No admin online but " + numPlayers.ToString()+ " players on the server" ;
-				}
-				else
-				{
-					messPlayers = numPlayers.ToString()+ " players on the server, "+ numadmins.ToString() + " admins online : " + adminsOnline;
-					
+				switch(numadmins){
+					case 0 :
+						if(numPlayers==1)
+						{
+							messPlayers = numPlayers.ToString()+ " player on the server but no admin online" ;
+						}
+						else
+						{
+							messPlayers = numPlayers.ToString()+ " players on the server but no admin online" ;
+						}	
+					break
+					case 1 : 
+						if(numPlayers==1)
+						{
+							messPlayers = numPlayers.ToString()+ " player on the server, "+ numadmins.ToString() + " admin online : " + adminsOnline;
+						}
+						else
+						{
+							messPlayers = numPlayers.ToString()+ " players on the server, "+ numadmins.ToString() + " admin online : " + adminsOnline;
+						}	
+					break
+					default :
+						messPlayers = numPlayers.ToString()+ " players on the server, "+ numadmins.ToString() + " admins online : " + adminsOnline;
 				}
 			
 				// if (GUID == admins[0])
