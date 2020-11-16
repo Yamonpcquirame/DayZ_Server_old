@@ -265,7 +265,7 @@ class CustomMission: MissionServer
 				}
 				else
 				{
-					messPlayers = "Admins online : " + numadmins.ToString() + " :" + adminsOnline;
+					messPlayers = numadmins.ToString() + "admins online : " + adminsOnline;
 					
 				}
 			
