@@ -259,16 +259,21 @@ class CustomMission: MissionServer
 					}
 				}
 				
-				if(numadmins==0)
-				{
-					messPlayers = "No admin online but you may not be alone...";
-				}
-				else
-				{
-					messPlayers = numadmins.ToString() + "admins online : " + adminsOnline;
+				switch(numadmins){
+					case 0 :
+						messPlayers = "No admin online but you may not be alone...";
+					break
 					
+					case 1 : 
+					
+						messPlayers = numadmins.ToString() + " admin online : " + adminsOnline;
+						
+					break
+					
+					default :
+						messPlayers = numadmins.ToString() + " admins online : " + adminsOnline;
+						
 				}
-			
 				// if (GUID == admins[0])
 				// {
 					// messPlayers = adminsName[0];

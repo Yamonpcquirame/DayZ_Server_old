@@ -2,57 +2,57 @@
 <messages>
 		<message>
         <repeat>15</repeat>
-        <delay>30</delay>
+        <delay>60</delay>
         <text>Besoin d'un admin ? RDV sur Discord !</text>
 	</message>
 	<message>
         <repeat>15</repeat>
-        <delay>30</delay>
+        <delay>60</delay>
         <text>Need an admin ? Just join our Discord !</text>
 	</message>
 	<message>
         <repeat>15</repeat>
-        <delay>80</delay>
+        <delay>100</delay>
         <text>Mardi soir c'est event PVP !</text>
     </message>
 	<message>
         <repeat>15</repeat>
-        <delay>80</delay>
+        <delay>100</delay>
         <text>PVP special event on Tuesday night </text>
     </message>
 		<message>
         <repeat>15</repeat>
-        <delay>50</delay>
+        <delay>80</delay>
         <text>Serveur PVP / PVE, tuez qui vous voulez !</text>
     </message>
 	<message>
         <repeat>15</repeat>
-        <delay>50</delay>
+        <delay>80</delay>
         <text>No rules server ! Kill who you want (PVP / PVE) !</text>
     </message>
     <message>
         <repeat>5</repeat>
-        <delay>100</delay>
+        <delay>200</delay>
         <text>Ahhhhhh l'air de la campagne... Les oiseaux qui chantent... Et les coups de batte de baseball dans la gueule :3 </text>
     </message>
      <message>
         <repeat>5</repeat>
-        <delay>130</delay>
+        <delay>400</delay>
         <text>Arthur ! Couillaiiiiiiiiiiire !</text>
     </message>
         <message>
         <repeat>5</repeat>
-        <delay>150</delay>
+        <delay>600</delay>
         <text>C'est beau mais c'est loin :3</text>
     </message>
         <message>
         <repeat>5</repeat>
-        <delay>180</delay>
+        <delay>800</delay>
         <text>Tu te sens seul ? Va en ville et tire un coup en l air : tu vas te faire pleins de nouveaux copains :3</text>
     </message>
         <message>
         <repeat>5</repeat>
-        <delay>200</delay>
+        <delay>1000</delay>
         <text>Tu feras gaffe : y a un peu plus de zombies que la normale :3 </text>
     </message>
 	<message>
